@@ -6200,7 +6200,7 @@ public abstract class AbstractSQLConfig<T, M extends Map<String, Object>, L exte
 						? null : fakeDeleteConfigMap.get(config.getTable());
 
 				Object deletedKey = accessFakeDeleteMap == null ? null : accessFakeDeleteMap.get(KEY_DELETED_KEY);
-				if ((deletedKey instanceof String) == false || StringUtil.isNotEmpty(deletedKey, true) == false) {
+				if ((deletedKey instanceof String) == false || StringUtil.isEmpty(deletedKey, true)) {
 					throw new IllegalArgumentException(config.getTable() + " 对应的假删除配置错误！"
 							+ KEY_DELETED_KEY + ":value 中 value 必须为非空 String！当前值为 " + deletedKey);
 				}
